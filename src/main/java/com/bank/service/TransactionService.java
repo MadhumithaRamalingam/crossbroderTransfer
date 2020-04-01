@@ -1,0 +1,11 @@
+package com.bank.service;
+
+import com.bank.dto.TransactionRequestDto;
+import com.bank.dto.TransactionResponseDto;
+import com.bank.exception.AccountNotFoundException;
+
+public interface TransactionService {
+	
+	public TransactionResponseDto transferAmount(TransactionRequestDto transactionRequestDto)throws AccountNotFoundException;
+
+}
