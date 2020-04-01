@@ -5,7 +5,6 @@ public class TransactionRequestDto {
 	private Long fromAccount;
 	private Long toAccount;
 	private Double transferAmount;
-	private String country;
 	
 	public Long getFromAccount() {
 		return fromAccount;
@@ -26,19 +25,14 @@ public class TransactionRequestDto {
 		this.transferAmount = transferAmount;
 	}
 	
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
+	
+	public TransactionRequestDto() {
+		super();
 	}
 	@Override
 	public String toString() {
 		return "TransactionRequestDto [fromAccount=" + fromAccount + ", toAccount=" + toAccount + ", transferAmount="
 				+ transferAmount + "]";
-	}
-	public TransactionRequestDto() {
-		super();
 	}
 	
 	

@@ -20,9 +20,6 @@ public class Transaction {
 	private Double transferAmount;
 	private LocalDateTime transferDate;
 	
-	@ManyToOne
-	private Account account;
-
 	public Long getTransactionId() {
 		return transactionId;
 	}
@@ -63,29 +60,14 @@ public class Transaction {
 		this.transferDate = transferDate;
 	}
 
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
-	public Transaction(Long transactionId, Long fromAccount, Long toAccount, Double transferAmount,
-			LocalDateTime transferDate, Account account) {
-		super();
-		this.transactionId = transactionId;
-		this.fromAccount = fromAccount;
-		this.toAccount = toAccount;
-		this.transferAmount = transferAmount;
-		this.transferDate = transferDate;
-		this.account = account;
-	}
-
 	@Override
 	public String toString() {
 		return "Transaction [transactionId=" + transactionId + ", fromAccount=" + fromAccount + ", toAccount="
 				+ toAccount + ", transferAmount=" + transferAmount + ", transferDate=" + transferDate + "]";
+	}
+
+	public Transaction() {
+		super();
 	}
 	
 	

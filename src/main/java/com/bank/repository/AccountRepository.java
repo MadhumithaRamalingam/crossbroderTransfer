@@ -10,6 +10,7 @@ import com.bank.entity.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-	Optional<Account> findByAccountNumber(Long fromAccount);
+	
+	Account findByAccountNumber(Long fromAccount);
 
 }
