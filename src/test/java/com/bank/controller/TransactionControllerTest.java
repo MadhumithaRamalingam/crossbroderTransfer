@@ -21,21 +21,20 @@ import com.bank.service.TransactionService;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class TransactionControllerTest {
-	
+
 	@InjectMocks
 	TranscationController transcationController;
-	
+
 	@Mock
 	TransactionService transactionService;
-	Account account=new Account();
-	Account account2=new Account();
-	TransactionRequestDto transactionRequestDto=new TransactionRequestDto();
-	TransactionResponseDto transactionResponseDto=new TransactionResponseDto();
-	
+	Account account = new Account();
+	Account account2 = new Account();
+	TransactionRequestDto transactionRequestDto = new TransactionRequestDto();
+	TransactionResponseDto transactionResponseDto = new TransactionResponseDto();
+
 	@Before
-	public void before()
-	{
-		
+	public void before() {
+
 		account.setAccountId(1L);
 		account.setAccountNumber(1L);
 		account.setAccountType("savings");
@@ -43,8 +42,7 @@ public class TransactionControllerTest {
 		account.setIfscCode("SBI001");
 		account.setAccountBalance(20000.00);
 		account.setCountry("india");
-		
-		
+
 		account2.setAccountId(2L);
 		account2.setAccountNumber(2L);
 		account2.setAccountType("savings");
@@ -52,22 +50,19 @@ public class TransactionControllerTest {
 		account2.setIfscCode("CBRT001");
 		account2.setAccountBalance(20000.00);
 		account2.setCountry("australia");
-		
-		
+
 		transactionRequestDto.setFromAccount(1L);
 		transactionRequestDto.setToAccount(2L);
 		transactionRequestDto.setTransferAmount(2000.00);
-		
-		
+
 		transactionResponseDto.setMessage(Constant.Success_Message);
 		transactionResponseDto.setStatusCode(Constant.Success_Code);
 	}
-	
+
 	@Test
-	public void testTransferFund() throws AccountNotFoundException, FundTransferLimitExceededException
-	{
+	public void testTransferFund() throws AccountNotFoundException, FundTransferLimitExceededException {
 		Mockito.when(transactionService.transferAmount(transactionRequestDto)).thenReturn(transactionResponseDto);
-		ResponseEntity<TransactionResponseDto> response=transcationController.transferAmount(transactionRequestDto);
+		ResponseEntity<TransactionResponseDto> response = transcationController.transferAmount(transactionRequestDto);
 		assertNotNull(response);
 	}
 

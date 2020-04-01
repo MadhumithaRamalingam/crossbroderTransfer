@@ -14,12 +14,12 @@ public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long transactionId;
-	
+
 	private Long fromAccount;
 	private Long toAccount;
 	private Double transferAmount;
 	private LocalDateTime transferDate;
-	
+
 	public Long getTransactionId() {
 		return transactionId;
 	}
@@ -69,6 +69,5 @@ public class Transaction {
 	public Transaction() {
 		super();
 	}
-	
-	
+
 }

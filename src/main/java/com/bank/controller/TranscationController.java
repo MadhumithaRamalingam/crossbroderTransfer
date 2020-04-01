@@ -19,7 +19,7 @@ import com.bank.service.TransactionService;
 @RestController
 public class TranscationController {
 	
-	Logger log=LoggerFactory.getLogger(TranscationController.class);
+	Logger log = LoggerFactory.getLogger(TranscationController.class);
 	@Autowired
 	TransactionService transactionService;
 	
@@ -27,6 +27,7 @@ public class TranscationController {
 	ResponseEntity<TransactionResponseDto> transferAmount(@RequestBody TransactionRequestDto transactionRequestDto) throws AccountNotFoundException, FundTransferLimitExceededException
 	{
 		TransactionResponseDto responseDto=transactionService.transferAmount(transactionRequestDto);
+		log.info("amount has been transferred");
 		return new ResponseEntity<TransactionResponseDto>(responseDto, HttpStatus.OK);
 		
 	}

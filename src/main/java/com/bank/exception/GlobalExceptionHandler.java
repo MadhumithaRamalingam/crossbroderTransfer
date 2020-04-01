@@ -10,24 +10,22 @@ import com.bank.dto.TransactionResponseDto;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-	
+
 	@ExceptionHandler(AccountNotFoundException.class)
-	ResponseEntity<TransactionResponseDto> accountNotFoundException(AccountNotFoundException exception)
-	{
-		TransactionResponseDto responseDto=new TransactionResponseDto();
+	ResponseEntity<TransactionResponseDto> accountNotFoundException(AccountNotFoundException exception) {
+		TransactionResponseDto responseDto = new TransactionResponseDto();
 		responseDto.setMessage(exception.getMessage());
 		responseDto.setStatusCode(Constant.Error_Status);
-		return new ResponseEntity<>(responseDto, HttpStatus.OK);	
-	}
-	
-	@ExceptionHandler(FundTransferLimitExceededException.class)
-	ResponseEntity<TransactionResponseDto> fundTransferLimitExceededException(FundTransferLimitExceededException exception)
-	{
-		TransactionResponseDto responseDto=new TransactionResponseDto();
-		responseDto.setMessage(exception.getMessage());
-		responseDto.setStatusCode(Constant.Error_Status);
-		return new ResponseEntity<>(responseDto, HttpStatus.OK);	
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
 	}
 
+	@ExceptionHandler(FundTransferLimitExceededException.class)
+	ResponseEntity<TransactionResponseDto> fundTransferLimitExceededException(
+			FundTransferLimitExceededException exception) {
+		TransactionResponseDto responseDto = new TransactionResponseDto();
+		responseDto.setMessage(exception.getMessage());
+		responseDto.setStatusCode(Constant.Error_Status);
+		return new ResponseEntity<>(responseDto, HttpStatus.OK);
+	}
 
 }

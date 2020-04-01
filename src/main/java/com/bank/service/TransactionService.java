@@ -6,7 +6,8 @@ import com.bank.exception.AccountNotFoundException;
 import com.bank.exception.FundTransferLimitExceededException;
 
 public interface TransactionService {
-	
-	public TransactionResponseDto transferAmount(TransactionRequestDto transactionRequestDto)throws AccountNotFoundException,FundTransferLimitExceededException;
+
+	public TransactionResponseDto transferAmount(TransactionRequestDto transactionRequestDto)
+			throws AccountNotFoundException, FundTransferLimitExceededException;
 
 }
